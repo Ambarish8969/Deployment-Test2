@@ -1,0 +1,6 @@
+<template>
+    <lightning-button label="Get Cases From Org 2" variant='brand' onclick={handleClick}></lightning-button>
+    <lightning-datatable if:true={data} key-field="Id" data={data} columns={columns} hide-checkbox-column
+        show-row-number-column>
+    </lightning-datatable>
+</template>

@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title='Contact Creation'>
+        <!-- <lightning-input value={contactTypeVal} onchange={handleContactType}  required></lightning-input> -->
+        <lightning-combobox label="Contact Type" value={contactTypeVal} options={contactTypeOptions} onchange={handleContactType}></lightning-combobox>
+        <template if:true={showOtherFields}>
+            <template if:true={isVIP}>
+                <lightning-input label="First Name" value={firstNameVal} onchange={handleFirstNameVal}></lightning-input>
+                <lightning-input label="Last Name" value={lastNameVal} onchange={handleLastName}></lightning-input>
+                <lightning-input label="Email" value={emailVal} onchange={handleEmailVal}></lightning-input>
+                <lightning-input label="Phone" value={phoneVal} onchange={handlePhoneVal}></lightning-input>
+                <lightning-input label="Mobile" value={mobilePhoneVal} onchange={handleMobilePhoneVal}></lightning-input>
+                <lightning-button label="Create New" variant='brand' onclick={handleButtonClick}></lightning-button>
+            </template>
+            <template if:false={isVIP}>
+                <lightning-input label="First Name" value={firstNameVal} onchange={handleFirstNameVal}></lightning-input>
+                <lightning-input label="Last Name" value={lastNameVal} onchange={handleLastName}></lightning-input>
+                <lightning-input label="Email" value={emailVal} onchange={handleEmailVal}></lightning-input>
+                <lightning-button label="Create New" variant='brand' onclick={handleButtonClick}></lightning-button>
+            </template>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,5 @@
+<template>
+    <lightning-datatable key-field="Id" data={contacts} columns={columns}></lightning-datatable>
+    <lightning-button label="Previous" variant="brand" onclick={handlePrevious} disabled={isFirstPage}></lightning-button>
+    <lightning-button label="Next" variant="brand" onclick={handleNext} disabled={isLastPage}></lightning-button>
+</template>

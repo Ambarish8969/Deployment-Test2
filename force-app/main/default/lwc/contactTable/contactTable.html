@@ -1,0 +1,24 @@
+<template>
+    <lightning-button label="Refresh" onclick={handleClick}></lightning-button>
+
+    <template if:true={contacts}>
+        <table>
+            <tr>
+                <th onclick={sortName}>Name ↑↓</th>
+                <th onclick={sortIndustry}>Email ↑↓</th>
+                <th onclick={sortPhone}>Phone ↑↓</th>
+            </tr>
+
+            <template for:each={paged} for:item="con">
+                <tr key={con.Id}>
+                    <td>{con.Name}</td>
+                    <td>{con.Email}</td>
+                    <td>{con.Phone}</td>
+                </tr>
+            </template>
+        </table>
+
+        <lightning-button label="Prev" onclick={prev}></lightning-button>
+        <lightning-button label="Next" onclick={next}></lightning-button>
+    </template>
+</template>

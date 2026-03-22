@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Account Table">
+        <lightning-button style="padding:15px" slot="actions" variant="brand" label="New" title="New Account"
+            onclick={addNewAccount}>
+        </lightning-button>
+        <lightning-button style="padding:15px" slot="actions" variant="destructive" label="Delete"
+            onclick={deleteAccounts}></lightning-button>
+        <p>Total Records: {totalRecords}</p>
+        <p>Pages: {pageNumber} of {totalPages}</p>
+        <p>Rows Selected: {selectedRows.length}</p>
+        <lightning-input slot="actions" placeholder="Search Account by Name" value={accInput} onchange={handleAccKeyChange}></lightning-input>
+        <lightning-datatable data-id="datatable" key-field="Id" data={data} columns={columns} draft-values={draftValues}
+            onsave={handleSave} onrowselection={handleSelection} selected-rows={selectedRows}></lightning-datatable>
+        <br>
+        <lightning-button style="padding:15px" label="Previous" variant="brand" onclick={handlePrevious}
+            disabled={isFirstPage}>
+        </lightning-button>
+        <lightning-button style="padding:15px" label="Next" variant="brand" onclick={handleNext} disabled={isLastPage}>
+        </lightning-button>
+    </lightning-card>
+</template>

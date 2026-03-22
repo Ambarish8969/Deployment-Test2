@@ -1,0 +1,8 @@
+<template>
+   <lightning-input value={inputValue} onchange={handleInputChange}></lightning-input> 
+   <lightning-button label='Send' variant='brand' onclick={handleButtonClick}></lightning-button>
+
+   <c-comp-b parentmessage={messageToChild} onmessagefromchild={handleMessageFromChild}></c-comp-b>
+
+   <p>{messageFromChild}</p>
+</template>

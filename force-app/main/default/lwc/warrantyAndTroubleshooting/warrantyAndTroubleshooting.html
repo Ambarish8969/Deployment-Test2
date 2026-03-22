@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Warranty & Troubleshooting" icon-name="standard:support">
+        
+        <div class="slds-p-horizontal_small">
+            <template if:true={isLoading}>
+                <div class="slds-m-vertical_medium">
+                    <lightning-spinner alternative-text="Loading..." size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:true={error}>
+                <div class="slds-m-vertical_medium slds-text-color_error">
+                    Error loading component: {error.body.message}
+                </div>
+            </template>
+
+            <template if:true={warrantyInfo}>
+                <div class="slds-m-bottom_medium">
+                    <h3 class="slds-text-heading_small slds-m-bottom_small">Warranty Details</h3>
+                    
+                    <p class="slds-text-heading_medium slds-m-bottom_small">
+                        <strong class={warrantyStatusClass}>{warrantyInfo.status}</strong>
+                    </p>
+                    
+                    <ul class="slds-list_dotted">
+                        <li>Product: {warrantyInfo.productName}</li>
+                        <li if:true={warrantyInfo.warrantyEndDate}>
+                            Expires: <lightning-formatted-date-time value={warrantyInfo.warrantyEndDate}></lightning-formatted-date-time>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="slds-text-heading_small slds-m-bottom_small">Related Articles</h3>
+                    
+                    <template if:true={hasArticles}>
+                        <ul class="slds-list_vertical">
+                            <template for:each={articles} for:item="article">
+                                <li key={article.Id} class="slds-list__item slds-m-bottom_small">
+                                    <a href="#" data-id={article.Id} onclick={handleArticleClick}>
+                                        {article.Title}
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+                    
+                    <template if:false={hasArticles}>
+                        <p class="slds-text-color_weak">No related articles found.</p>
+                    </template>
+                </div>
+
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,24 @@
+<template>
+    <lightning-card>
+        <!-- <section class="slds-modal slds-fade-in-open" role="dialog" aria-modal="true"> -->
+            <!-- <div class="slds-modal_container"> -->
+                <!-- <header class="slds-modal_header"> -->
+                    <h2 slot="header" class="slds-text-heading_medium">New Account</h2>
+                <!-- </header> -->
+
+                <div class="slds-modal_content slds-p-around_medium">
+                    <lightning-record-edit-form object-api-name={objectApiName} onsuccess={handleSuccess}
+                        onerror={handleError}>
+                        <lightning-input-field field-name="Name"></lightning-input-field>
+                        <lightning-input-field field-name="Industry"></lightning-input-field>
+                        <lightning-input-field field-name="Website"></lightning-input-field>
+
+                        <lightning-button style="padding:15px" label="Cancel" variant="base" onclick={handleCancel}></lightning-button>
+                        <lightning-button style="padding:15px" label="Save" variant="brand" type="submit" onclick={handleSave}></lightning-button>
+                    </lightning-record-edit-form>
+                </div>
+
+            <!-- </div> -->
+        <!-- </section> -->
+     </lightning-card>
+</template>

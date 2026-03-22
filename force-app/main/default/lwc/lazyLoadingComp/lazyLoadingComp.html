@@ -1,0 +1,16 @@
+<template>
+    <div style="height: 500px;">
+        <lightning-datatable
+            key-field="Id"
+            data={accounts}
+            columns={columns}
+            enable-infinite-loading
+            onloadmore={loadMoreData}
+            load-more-offset="20"
+            hide-checkbox-column
+            show-row-number-column
+        >
+        </lightning-datatable>
+    </div>
+        {loadMoreStatus}
+</template>

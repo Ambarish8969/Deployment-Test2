@@ -1,0 +1,8 @@
+<template>
+    <lightning-input value={inputValue} onchange={handleInputChange} placeholder="Search Accounts"></lightning-input>
+    <template if:true={isDataPresent}>
+        <lightning-datatable key-field="Id" data={accounts} columns={columns}></lightning-datatable>
+    </template>
+    <template if:false={isDataPresent}>
+    </template>
+</template>

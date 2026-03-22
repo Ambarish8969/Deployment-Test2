@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-grid slds-gutters slds-grid_vertical-align-center">
+        <p class="slds-col slds-size_1-of-3">Select No. of Records</p>
+        <lightning-combobox class="slds-col slds-size_1-of-3" value={paginationSize} options={options}
+            onchange={handleComboChange}></lightning-combobox>
+    </div>
+    <div>
+        <lightning-datatable data-id="datatable" key-field="Id" data={contacts} columns={columns} show-row-number-column
+            onsave={handleSave} draft-values={draftValues} onrowselection={handleRowSelection}
+            selected-rows={selectedRows}></lightning-datatable>
+        <div style="margin-top: 10px; display: flex; align-items: center; gap: 8px;">
+            <lightning-button label="< Prev" variant="brand" onclick={handlePrevious} disabled={isFirstPage}>
+            </lightning-button>
+            <lightning-button label="Next >" variant="brand" onclick={handleNext} disabled={isLastPage}>
+            </lightning-button>
+        </div>
+
+        <div>
+            Page {pageNumber} of {totalPages}
+            (Total Records: {totalRecords})
+        </div>
+
+    </div>
+</template>

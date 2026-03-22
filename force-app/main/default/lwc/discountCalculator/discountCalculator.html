@@ -1,0 +1,6 @@
+<template>
+    <lightning-input label="Amount" onchange={handleAmount} value={amount} type="number" required></lightning-input>
+    <lightning-input label="Discount" onchange={handleDiscount} value={discount} type="number" required></lightning-input>
+    <lightning-button label="Calculate" onclick={calculate} variant="brand"></lightning-button>
+    <p>Final Amount: {finalAmount}</p>
+</template>

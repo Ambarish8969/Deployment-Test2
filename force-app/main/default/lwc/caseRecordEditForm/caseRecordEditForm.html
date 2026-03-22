@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title='Case Creation'>
+        <lightning-record-edit-form object-api-name='Case' onsuccess={handleSuccess} onerror={handleError} onload={handleLoad}>
+            <lightning-input-field field-name='Priority' onchange={handlePriorityChange} data-field='Priority' required></lightning-input-field>
+            <template if:true={showOtherFields}>
+                <template if:true={isPriorityHigh}>
+                    <lightning-input-field field-name='Status'></lightning-input-field>
+                    <lightning-input-field field-name='ContactId'></lightning-input-field>
+                    <lightning-input-field field-name='Origin'></lightning-input-field>
+                    <lightning-input-field field-name='Subject'></lightning-input-field>
+                    <lightning-input-field field-name='Description'></lightning-input-field>
+                    <lightning-button label='Create New' type='submit' variant='brand'></lightning-button>
+                </template>
+                <template if:false={isPriorityHigh}>
+                    <lightning-input-field field-name='Status'></lightning-input-field>
+                    <!-- <lightning-input-field field-name='ContactId'></lightning-input-field> -->
+                    <!-- <lightning-input-field field-name='Origin'></lightning-input-field> -->
+                    <lightning-input-field field-name='Subject'></lightning-input-field>
+                    <lightning-input-field field-name='Description'></lightning-input-field>
+                    <lightning-button label='Create New' type='submit' variant='brand'></lightning-button>
+                </template>
+            </template>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>

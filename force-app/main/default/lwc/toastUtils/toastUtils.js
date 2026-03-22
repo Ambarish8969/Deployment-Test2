@@ -7,4 +7,5 @@ export function showToast(component, title, message, variant) {
         variant: variant,
     });
     component.dispatchEvent(event);
+    // Test comment 1
 }

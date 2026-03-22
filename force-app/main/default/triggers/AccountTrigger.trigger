@@ -1,16 +1,22 @@
-trigger AccountTrigger on Account (after insert, after update) {
+trigger AccountTrigger on Account (after insert, after update,before insert, before delete) {
     
-    if(Trigger.isAfter && Trigger.isInsert){
-        AccountTriggerHandler.createEntitlements(Trigger.new);
-    }else if(Trigger.isAfter && Trigger.isUpdate){
-        List<Account> updatedAccounts = new List<Account>();
+    if(Trigger.isBefore && Trigger.isInsert){
+        AccountTriggerHandler.preventDuplicates(Trigger.new);
+        AccountTriggerHandler.setDefaultIndustry(Trigger.new);
+    }
+    else if(Trigger.isAfter && Trigger.isInsert){
+        List<Id> accIds = new List<Id>();
         for(Account acc : Trigger.new){
-            if((acc.Support_Level__c != Trigger.oldMap.get(acc.Id).Support_Level__c) && 
-               (Trigger.oldMap.get(acc.Id).Support_Level__c != 'Gold' || Trigger.oldMap.get(acc.Id).Support_Level__c != 'Standard') ){
-                   updatedAccounts.add(acc);
-               }
+            accIds.add(acc.Id);
         }
-        AccountTriggerHandler.createEntitlements(updatedAccounts);
+       // AccountTriggerHandler.getData(accIds);
+        AccountTriggerHandler.createAgriOpp(Trigger.new, null);
+    }
+    else if(Trigger.isAfter && Trigger.isUpdate){
+        AccountTriggerHandler.createAgriOpp(Trigger.new, Trigger.oldMap);
+    }
+    else if(Trigger.isBefore && Trigger.isDelete){
+        AccountTriggerHandler.preventDeletion(Trigger.old);
     }
 
 }

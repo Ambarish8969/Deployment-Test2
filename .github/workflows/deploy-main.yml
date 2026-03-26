@@ -115,7 +115,7 @@ jobs:
           done <<EOF
 $CHANGED
 EOF
-
+#Add
           echo "Delta directory built at: $DELTA_DIR"
           echo "delta_dir=$DELTA_DIR" >> $GITHUB_OUTPUT
           echo "no_changes=false" >> $GITHUB_OUTPUT

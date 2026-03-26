@@ -1,19 +1,19 @@
 {
   "folders": [
     {
-      "path": "d:/Test1/Prod Org"
+      "path": "d:/Test1/Dev Org"
     }
   ],
   "settings": {
     "eslint.workingDirectories": [
-      "d:/Test1/Prod Org"
+      "d:/Test1/Dev Org"
     ],
     "eslint.validate": [
       "javascript",
       "typescript"
     ],
     "eslint.options": {
-      "overrideConfigFile": "d:\\Test1\\Prod Org\\.eslintrc.json"
+      "overrideConfigFile": "d:\\Test1\\Dev Org\\.eslintrc.json"
     }
   }
 }

@@ -71,7 +71,7 @@ jobs:
             echo "range=$PREV_SHA...$CURR_SHA" >> $GITHUB_OUTPUT
             echo "full_deploy=false" >> $GITHUB_OUTPUT
           fi
-
+ # updated.
       - name: Build delta package directory
         id: build_delta
         if: steps.delta.outputs.full_deploy == 'false'

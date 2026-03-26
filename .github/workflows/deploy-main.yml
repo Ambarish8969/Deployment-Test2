@@ -150,7 +150,7 @@ jobs:
         run: |
           # Using NoTestRun as requested
           sf project deploy start \
-            ----source-dir "${{ steps.deploy_path.outputs.path }}" \
+            --source-dir "${{ steps.deploy_path.outputs.path }}" \
             --target-org "$SF_ORG_ALIAS" \
             --test-level NoTestRun \
             --ignore-conflicts \

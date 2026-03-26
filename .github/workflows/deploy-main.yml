@@ -81,7 +81,7 @@ jobs:
           RANGE="${{ steps.delta.outputs.range }}"
 
           # Gather changed files limited to the source directory
-          CHANGED=$(git diff --name-only --diff-filter=ACMRTUXB $RANGE -- "${SOURCE_DIR}/**" | tr -d &#39;\r&#39;)
+          CHANGED=$(git diff --name-only --diff-filter=ACMRTUXB $RANGE -- "${SOURCE_DIR}/**" | tr -d '\r')
           if [ -z "$CHANGED" ]; then
             echo "No changes detected in ${SOURCE_DIR}. Skipping deployment."
             echo "no_changes=true" >> $GITHUB_OUTPUT
@@ -112,9 +112,9 @@ jobs:
                 cp "$FILE-meta.xml" "$DEST_DIR/"
               fi
             fi
-          done <<EOF
-          $CHANGED
-          EOF
+          done <<'EOF'
+$CHANGED
+EOF
 
           echo "Delta directory built at: $DELTA_DIR"
           echo "delta_dir=$DELTA_DIR" >> $GITHUB_OUTPUT

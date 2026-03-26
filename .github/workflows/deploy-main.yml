@@ -112,7 +112,7 @@ jobs:
                 cp "$FILE-meta.xml" "$DEST_DIR/"
               fi
             fi
-          done <<'EOF'
+          done <<EOF
 $CHANGED
 EOF
 

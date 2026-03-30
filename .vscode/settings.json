@@ -41,5 +41,6 @@
   ],
   "eslint.options": {
     "overrideConfigFile": "d:\\Test1\\Dev Org\\.eslintrc.json"
-  }
+  },
+  "xml.preferences.showSchemaDocumentationType": "none"
 }

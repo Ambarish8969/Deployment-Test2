@@ -14,7 +14,7 @@ public class OpportunityTriggerHandler{
             }
         }
     }
-	
+    
     public static void updateMaxOpp(List<Opportunity> newOpps, Map<Id, Opportunity> oldOppMap){
         Set<Id> accIds = new Set<Id>();
         
@@ -54,5 +54,25 @@ public class OpportunityTriggerHandler{
             update accToUpdate;
         }
         
+    }
+    
+    public static void validateData(List<Opportunity> newOpps, Map<Id, Opportunity> oldOppMap){
+        
+        if(!newOpps.isEmpty()){
+            if(oldOppMap != null){
+                for(Opportunity newOpp : newOpps){
+                    Opportunity oldOpp = oldOppMap.get(newOpp.Id);
+                    if(newOpp.CloseDate < Date.today()){
+                        newOpp.addError('Close Date cannot be less than today');
+                    }
+                    else if(oldOpp.StageName == 'Prospecting' && newOpp.StageName == 'Closed Won'){
+                        newOpp.addError('Stage cannot be changed from Prospecting to Closed Won');
+                    }
+                    else if(newOpp.Amount <= 10000){
+                        newOpp.addError('Amount should be greater than 10000');
+                    }
+                }
+            }
+        }
     }
 }

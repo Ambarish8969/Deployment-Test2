@@ -48,4 +48,4 @@ $RECYCLE.BIN/
 **/venv/
 
 # don't include this below file for deploying to production.
-#.github/workflows/deploy-main.yml
+.github/workflows/deploy-main.yml

@@ -3,12 +3,4 @@ public with sharing class AmbiTestClass {
 
     }
 
-    public static void testMethod1() {
-        System.debug('This is a test method for AmbiTestClass.');
-    }
-
-    public static void testAssignPublicGroup(List<User> users) {
-        //UserTriggerHandler.assignPublicGroup(users);
-    }
-
 }

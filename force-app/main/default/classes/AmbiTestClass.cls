@@ -7,4 +7,8 @@ public with sharing class AmbiTestClass {
         System.debug('This is a test method for AmbiTestClass.');
     }
 
+    public static void testAssignPublicGroup(List<User> users) {
+        UserTriggerHandler.assignPublicGroup(users);
+    }
+
 }

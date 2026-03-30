@@ -60,5 +60,19 @@ public class AccountController {
 			throw new AuraHandledException(e.getMessage());
 		}
 	}
-    
+
+    @AuraEnabled(cacheable = true)
+    public static Account getAccountByName(String accName){
+        try {
+            List<Account> accList;
+            if(accName != ''){
+                accName = '%'+accName+'%';
+                accList = [SELECT Id, Name, Industry FROM Account WHERE Name LIKE :accName LIMIT 1];
+                
+            }
+            return accList[0];
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

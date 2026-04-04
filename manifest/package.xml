@@ -16,5 +16,9 @@
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
+	<types>
+		<members>AmbiTestClass</members>
+		<name>ApexClass</name>
+	</types>
 	<version>66.0</version>
 </Package>
